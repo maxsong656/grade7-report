@@ -1,0 +1,21 @@
+# 大文件
+*.mp4
+*.pptx
+*独立版.html
+
+# 构建脚本（仅保留 v2）
+ppt-backup/build.js
+
+# 重复图片目录
+ppt-backup/images/
+
+# 构建中间产物
+ppt-backup/slides/
+embed*.js
+*.log
+.wrangler/
+.codegraph/
+node_modules/
+
+# 系统
+.DS_Store
