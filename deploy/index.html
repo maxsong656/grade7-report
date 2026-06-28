@@ -128,20 +128,19 @@ body.low-power canvas.bg{display:none!important}
 
 /* ====== Teacher Slide Layout ====== */
 .teacher-grid{
-  display:grid;grid-template-columns:40fr 60fr;
-  gap:var(--sp-8);flex:1;align-items:start;min-height:0;
+  display:grid;grid-template-columns:38fr 62fr;
+  gap:var(--sp-7);flex:1;align-items:start;min-height:0;
 }
 .teacher-photo{
   width:100%;height:100%;max-height:88vh;
-  overflow:hidden;display:flex;align-items:flex-start;justify-content:center;
-  border-left:4px solid var(--accent);
+  overflow:hidden;border-left:4px solid var(--accent);
 }
 .teacher-photo img{
-  width:100%;height:100%;object-fit:contain;object-position:top center;display:block;
+  width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;
 }
 .teacher-text{
-  display:flex;flex-direction:column;gap:var(--sp-4);
-  padding:var(--sp-5) 0;
+  display:flex;flex-direction:column;gap:var(--sp-3);
+  padding:var(--sp-3) 0;
 }
 /* 角色标题：深色大字 + 底部黄线强调 */
 .teacher-role{
@@ -291,7 +290,7 @@ body.low-power canvas.bg{display:none!important}
     </div>
     <div style="flex:1;display:flex;flex-direction:column;gap:var(--sp-5);">
       <span class="t-cat" style="color:var(--accent);">A YEAR-END FILM BY GRADE 7 TEAM</span>
-      <h1 class="h-hero" style="font-size:min(4.5vw,7vh);line-height:1.15;">Action！七年级组的「杀青」报告</h1>
+      <h1 class="h-hero" style="font-size:min(3.2vw,5.5vh);line-height:1.2;">Action！七年级组的「杀青」报告</h1>
       <p class="lead">2025 学年年度总结</p>
       <div class="accent-bar"></div>
       <p class="body" style="color:var(--ink);">汇报人：<strong>赵宗莉</strong></p>
