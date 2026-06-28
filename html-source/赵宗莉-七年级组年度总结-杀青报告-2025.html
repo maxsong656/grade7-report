@@ -52,11 +52,11 @@ body.low-power canvas.bg{display:none!important}
   width:100vw;height:100vh;flex:0 0 100vw;
   position:relative;padding:5vh 5vw;
   display:flex;flex-direction:column;overflow:hidden;
-  background:var(--paper);color:var(--ink);
+  background:var(--grey-1);color:var(--ink);
 }
-.slide.grey{background:var(--grey-1)}
+.slide.white{background:var(--paper)}
 .slide.dark{background:var(--ink);color:var(--paper)}
-.slide.accent{background:var(--accent);color:var(--accent-on)}
+.slide.accent{background:var(--grey-1);color:var(--ink);border-top:6px solid var(--accent)}
 
 /* ====== Typography — 投影演示尺寸 ====== */
 .h-hero{
@@ -285,16 +285,16 @@ body.low-power canvas.bg{display:none!important}
     <span class="t-mono" style="color:var(--accent);">SCENE 00</span>
     <span class="t-mono">1 / 26</span>
   </div>
-  <div style="display:flex;flex-direction:column;flex:1;min-height:0;gap:var(--sp-5);">
-    <div style="display:flex;flex-direction:column;gap:var(--sp-4);padding-top:2vh;">
+  <div style="display:flex;flex:1;min-height:0;gap:var(--sp-8);align-items:center;">
+    <div style="width:38vw;flex-shrink:0;">
+      <img src="images/image1.jpg" alt="" style="width:100%;max-height:65vh;object-fit:cover;border-left:4px solid var(--accent);">
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:var(--sp-5);">
       <span class="t-cat" style="color:var(--accent);">A YEAR-END FILM BY GRADE 7 TEAM</span>
-      <h1 class="h-hero" style="font-size:min(6.5vw,10vh);">Action！七年级组的「杀青」报告</h1>
+      <h1 class="h-hero" style="font-size:min(4.5vw,7vh);line-height:1.15;">Action！七年级组的「杀青」报告</h1>
       <p class="lead">2025 学年年度总结</p>
       <div class="accent-bar"></div>
       <p class="body" style="color:var(--ink);">汇报人：<strong>赵宗莉</strong></p>
-    </div>
-    <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:0;">
-      <img src="images/image1.jpg" alt="" style="max-width:60vw;max-height:38vh;object-fit:cover;border-left:4px solid var(--accent);">
     </div>
   </div>
   <div class="nav-foot">
@@ -398,7 +398,7 @@ body.low-power canvas.bg{display:none!important}
     <div class="teacher-text">
       <span class="t-meta">SCENE 01 · 语文组</span>
       <h3 class="teacher-role">温柔暖心大姐姐</h3>
-      <p class="body">郭颖老师：气质佳、文采绝，满腹文学底蕴才情满满，单论语文功底便遥遥领先。更难得心底热忱通透，但凡同事遇上难处，她总能搭把手、支个招，事事贴心周全。专业上是引路良师，生活里是温柔暖心大姐姐，各项长处拉满，属实不给旁人留半点赶超空间。</p>
+      <p class="body">气质佳、文采绝，满腹文学底蕴才情满满，单论语文功底便遥遥领先。更难得心底热忱通透，但凡同事遇上难处，她总能搭把手、支个招，事事贴心周全。专业上是引路良师，生活里是温柔暖心大姐姐，各项长处拉满，属实不给旁人留半点赶超空间。</p>
       <div class="skill-row"><span class="skill-tag">文学底蕴</span><span class="skill-tag">贴心周全</span><span class="skill-tag">引路良师</span></div>
       <span class="t-mono">CAST NO. 04</span>
     </div>
@@ -422,11 +422,11 @@ body.low-power canvas.bg{display:none!important}
 <!-- ====== 09-12 · MATH TEACHERS ====== -->
 <section class="slide"><div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">9 / 26</span></div><div class="teacher-grid"><div class="teacher-photo"><img src="images/image6.png" alt="黎继奎"></div><div class="teacher-text"><span class="t-meta">SCENE 01 · 数学组</span><h3 class="teacher-role">优势过剩型选手</h3><p class="body">优势过剩：脸好、歌好、数学还好，让别人无路可走。</p><div class="skill-row"><span class="skill-tag">数学好</span><span class="skill-tag">歌好</span><span class="skill-tag">人格外好</span></div><span class="t-mono">CAST NO. 05</span></div></div><div class="nav-foot"><span class="t-meta">数学组 · 1/4</span><span class="t-mono">Math</span></div></section>
 
-<section class="slide grey"><div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">10 / 26</span></div><div class="teacher-grid"><div class="teacher-photo"><img src="images/image7.png" alt="宋治圣"></div><div class="teacher-text"><span class="t-meta">SCENE 01 · 数学组</span><h3 class="teacher-role">AI × 数学技术救火顾问</h3><p class="body">幽默只是标配，硬核才是底牌：数学教研统筹在行，AI 运用得心应手，大小技术问题找他准没错。</p><div class="skill-row"><span class="skill-tag">数学教研</span><span class="skill-tag">AI 运用</span><span class="skill-tag">技术救火</span></div><span class="t-mono">CAST NO. 06</span></div></div><div class="nav-foot"><span class="t-meta">数学组 · 2/4</span><span class="t-mono">Math</span></div></section>
+<section class="slide grey"><div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">10 / 26</span></div><div class="teacher-grid"><div class="teacher-photo"><img src="images/image7.png" alt="宋治圣"></div><div class="teacher-text"><span class="t-meta">SCENE 01 · 数学组</span><h3 class="teacher-role">AI × 数学技术救火顾问</h3><p class="body">幽默只是标配，硬核才是底牌：数学教研统筹在行，AI 运用得心应手，身为数学备课组长兼全校靠谱技术救火顾问，大小技术问题找他准没错，东北开朗性格人缘格外吃香。</p><div class="skill-row"><span class="skill-tag">数学教研</span><span class="skill-tag">AI 运用</span><span class="skill-tag">技术救火</span></div><span class="t-mono">CAST NO. 06</span></div></div><div class="nav-foot"><span class="t-meta">数学组 · 2/4</span><span class="t-mono">Math</span></div></section>
 
 <section class="slide"><div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">11 / 26</span></div><div class="teacher-grid"><div class="teacher-photo"><img src="images/image8.png" alt="张娟"></div><div class="teacher-text"><span class="t-meta">SCENE 01 · 数学组</span><h3 class="teacher-role">严谨较真的高分导演</h3><p class="body">别嫌她要求苛刻，正是这份严谨较真，把班风学风抓得扎扎实实，任教经验老道，教学章法成熟。</p><div class="skill-row"><span class="skill-tag">严谨</span><span class="skill-tag">班风学风</span><span class="skill-tag">均分亮眼</span></div><span class="t-mono">CAST NO. 07</span></div></div><div class="nav-foot"><span class="t-meta">数学组 · 3/4</span><span class="t-mono">Math</span></div></section>
 
-<section class="slide grey"><div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">12 / 26</span></div><div class="teacher-grid"><div class="teacher-photo"><img src="images/image9.png" alt="姜正富"></div><div class="teacher-text"><span class="t-meta">SCENE 01 · 数学组</span><h3 class="teacher-role">数学教学大局守护者</h3><p class="body">身兼八年级年级组长与数学教师，待人温润谦和，行事却坚守本心、公正无私，为教学平稳推进保驾护航。</p><div class="skill-row"><span class="skill-tag">公正无私</span><span class="skill-tag">教学大局</span><span class="skill-tag">保驾护航</span></div><span class="t-mono">CAST NO. 08</span></div></div><div class="nav-foot"><span class="t-meta">数学组 · 4/4</span><span class="t-mono">Math</span></div></section>
+<section class="slide grey"><div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">12 / 26</span></div><div class="teacher-grid"><div class="teacher-photo"><img src="images/image9.png" alt="姜正富"></div><div class="teacher-text"><span class="t-meta">SCENE 01 · 数学组</span><h3 class="teacher-role">数学教学大局守护者</h3><p class="body">身兼八年级年级组长与数学教师，待人温润谦和，行事却坚守本心、公正无私。心中始终装着初中部数学教学大局，甘于牺牲个人时间，默默无私奉献，全心为整个学部教学平稳推进保驾护航。</p><div class="skill-row"><span class="skill-tag">公正无私</span><span class="skill-tag">教学大局</span><span class="skill-tag">保驾护航</span></div><span class="t-mono">CAST NO. 08</span></div></div><div class="nav-foot"><span class="t-meta">数学组 · 4/4</span><span class="t-mono">Math</span></div></section>
 
 <!-- ====== 13 · ENGLISH SECTION ====== -->
 <section class="slide accent slow">
@@ -480,7 +480,7 @@ body.low-power canvas.bg{display:none!important}
     <div class="teacher-text">
       <span class="t-meta" style="color:var(--accent);">SCENE 01 · KEY SUPPORT</span>
       <h3 class="teacher-role">全年级万能救火员</h3>
-      <p class="body">全年级万能救火员周宵亮老师：颜值拉满就算了，脑子转得比经纬网还快，别人遇事一筹莫展，她总能想出多重解决方案，带班、管年级样样拿捏，美貌才华双天花板。碰上难沟通家长、棘手学生，班主任一筹莫展之时，她总能冲锋陷阵最前沿，帮助大家排忧解难。就算半夜求助，也会细心帮忙改消息、支妙招，有她，万事不愁！</p>
+      <p class="body">全年级万能救火员，颜值拉满就算了，脑子转得比经纬网还快，别人遇事一筹莫展，她总能想出多重解决方案，带班、管年级样样拿捏，美貌才华双天花板。碰上难沟通家长、棘手学生，班主任一筹莫展之时，她总能冲锋陷阵最前沿，帮助大家排忧解难。就算半夜求助，也会细心帮忙改消息、支妙招，有她，万事不愁！</p>
       <div class="skill-row"><span class="skill-tag">万能救火</span><span class="skill-tag">年级管理</span><span class="skill-tag">排忧解难</span></div>
       <span class="t-mono">CAST NO. 17</span>
     </div>
@@ -511,36 +511,32 @@ body.low-power canvas.bg{display:none!important}
 
 <!-- ====== 25 · HELLO + VIDEO ====== -->
 <section class="slide still">
-  <div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">25 / 26</span></div>
-  <div style="display:flex;flex-direction:column;flex:1;align-items:center;gap:var(--sp-5);">
+  <div style="display:flex;flex-direction:column;flex:1;align-items:center;justify-content:center;gap:var(--sp-5);">
     <span class="t-meta">SCENE 03</span>
     <h2 class="h-lg">你好，闪闪发光的少年</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6);flex:1;align-items:center;min-height:0;width:100%;">
-      <img src="images/image19.jpeg" alt="" style="width:100%;max-height:52vh;object-fit:contain;">
+    <div style="width:75vw;max-width:900px;">
       <div class="video-wrap" style="width:100%;">
         <video id="yearVideo" controls preload="metadata" playsinline>
           <source src="media/year-review.mp4" type="video/mp4">
         </video>
       </div>
     </div>
-    <p class="body-sm" style="text-align:center;max-width:55vw;">G7「杀青」了！一学年的奔跑与成长，都收藏在这部年度影片里。</p>
+    <p class="body-sm" style="text-align:center;">G7「杀青」了！一学年的奔跑与成长，都收藏在这部年度影片里。</p>
   </div>
-  <div class="nav-foot"><span class="t-meta">年度影像回顾 · 点播放自动全屏</span><span class="t-mono">VIDEO</span></div>
 </section>
 
 <!-- ====== 26 · CLOSING ====== -->
 <section class="slide accent">
-  <div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">26 / 26</span></div>
-  <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;flex:1;text-align:center;gap:var(--sp-6);">
+  <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;flex:1;text-align:center;gap:var(--sp-5);">
     <span class="t-meta">THE END</span>
-    <h2 class="h-hero" style="font-size:min(7vw,11vh);">暑假快乐</h2>
-    <p class="body" style="font-size:min(3vw,4.5vh);color:var(--accent-on);line-height:1.4;">感谢每一位老师<br>感谢每一个闪闪发光的少年</p>
-    <p class="body-sm" style="color:var(--accent-on);opacity:.7;max-width:50vw;text-align:center;">这一年，谢谢每一位认真发光的大人。</p>
-    <div class="accent-bar" style="background:var(--accent-on);opacity:.2;"></div>
-    <span class="t-cat" style="color:var(--accent-on);">TO BE CONTINUED...</span>
-    <span class="t-mono" style="color:var(--accent-on);opacity:.7;">2025 学年 · 七年级组年度总结</span>
+    <h2 class="h-hero" style="font-size:min(6vw,10vh);">暑假快乐</h2>
+    <img src="images/image19.jpeg" alt="" style="max-width:40vw;max-height:28vh;object-fit:contain;">
+    <p class="body" style="font-size:min(2.8vw,4vh);line-height:1.4;">感谢每一位老师<br>感谢每一个闪闪发光的少年</p>
+    <p class="body-sm" style="opacity:.7;">这一年，谢谢每一位认真发光的大人。</p>
+    <div class="accent-bar"></div>
+    <span class="t-cat">TO BE CONTINUED...</span>
+    <span class="t-mono" style="opacity:.7;">2025 学年 · 七年级组年度总结</span>
   </div>
-  <div class="nav-foot"><span class="t-meta" style="color:var(--accent-on);opacity:.7;">GRADE 7 · WAN YUAN XIEHE</span><span class="t-mono" style="color:var(--accent-on);opacity:.5;">🎬 FIN</span></div>
 </section>
 
 </div>
