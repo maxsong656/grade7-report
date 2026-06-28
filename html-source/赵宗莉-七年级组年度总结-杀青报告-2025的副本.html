@@ -26,7 +26,7 @@
   --text-helper:#737373;
   --border-subtle:#e0e0e0;
   --sans:"Inter","Helvetica Neue","Helvetica","Arial",system-ui,sans-serif;
-  --sans-zh:"PingFang SC","Microsoft YaHei UI","Noto Sans SC",sans-serif;
+  --sans-zh:"Songti SC","STSong","Noto Serif SC","PingFang SC",serif;
   --serif-zh:"Songti SC","STSong","Noto Serif SC",serif;
   --mono:"SF Mono","JetBrains Mono","Menlo","Courier New",monospace;
   --sp-3:8px;--sp-4:12px;--sp-5:16px;--sp-6:24px;--sp-7:32px;--sp-8:40px;
@@ -50,7 +50,7 @@ body.low-power canvas.bg{display:none!important}
 #deck{position:fixed;inset:0;width:10000vw;height:100vh;display:flex;flex-wrap:nowrap;transition:transform .85s cubic-bezier(.25,0,.15,1);z-index:10;will-change:transform}
 .slide{
   width:100vw;height:100vh;flex:0 0 100vw;
-  position:relative;padding:5vh 5vw;
+  position:relative;padding:3vh 4vw 4.5vh;
   display:flex;flex-direction:column;overflow:hidden;
   background:var(--paper);color:var(--ink);
 }
@@ -88,12 +88,12 @@ body.low-power canvas.bg{display:none!important}
   line-height:1.38;color:var(--text-secondary);
 }
 .body{
-  font-weight:400;font-size:min(2.6vw,4vh);
-  line-height:1.45;color:var(--text-secondary);
+  font-weight:400;font-size:min(2.3vw,3.5vh);
+  line-height:1.5;color:var(--text-secondary);
 }
 .body-sm{
-  font-weight:400;font-size:min(2vw,3.2vh);
-  line-height:1.4;color:var(--text-secondary);
+  font-weight:400;font-size:min(1.8vw,2.8vh);
+  line-height:1.45;color:var(--text-secondary);
 }
 .t-cat{
   font-weight:600;font-size:min(1.5vw,2.4vh);
@@ -137,7 +137,7 @@ body.low-power canvas.bg{display:none!important}
   border-left:4px solid var(--accent);
 }
 .teacher-photo img{
-  width:100%;height:100%;object-fit:contain;object-position:center;display:block;
+  width:calc(100% - 2px);height:100%;object-fit:cover;display:block;
 }
 .teacher-text{
   display:flex;flex-direction:column;gap:var(--sp-4);
@@ -172,8 +172,15 @@ body.low-power canvas.bg{display:none!important}
 }
 
 /* ====== Chrome ====== */
-.chrome-min{display:none}
-.nav-foot{display:none}
+.chrome-min{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-shrink:0;padding-bottom:var(--sp-4);
+}
+.nav-foot{
+  margin-top:auto;flex-shrink:0;
+  display:flex;justify-content:space-between;align-items:flex-end;
+  padding-top:var(--sp-4);
+}
 
 /* ====== Activity Grid ====== */
 .activity-grid{
@@ -211,47 +218,47 @@ body.low-power canvas.bg{display:none!important}
 }
 #hint.show{opacity:.6;}
 
-/* 动画基础：默认教师页快节奏 */
 .slide > *:not(.chrome-min):not(.nav-foot),
 .slide .teacher-grid > *,
-.slide .teacher-text > *{
-  opacity:0;transform:translateY(18px);
-  transition:opacity .35s ease,transform .35s ease;
+.slide .teacher-text > *,
+.slide .cover-grid > *,
+.slide .section-wrap > *,
+.slide .closing-content > *,
+.slide .activity-grid > *,
+.slide .hello-content > *,
+.slide .video-wrap{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .5s ease,transform .5s ease;
 }
-/* 章节/封面/结尾：慢节奏仪式感 */
-.slide.slow > *:not(.chrome-min):not(.nav-foot),
-.slide.slow .section-wrap > *{
-  opacity:0;transform:translateY(32px);
-  transition:opacity .7s ease,transform .7s ease;
-}
-/* 视频页：不动画 */
-.slide.still > *:not(.chrome-min):not(.nav-foot){opacity:1;transform:none;transition:none;}
-
 .slide.show > *:not(.chrome-min):not(.nav-foot),
 .slide.show .teacher-grid > *,
-.slide.show .teacher-text > *{opacity:1;transform:translateY(0);}
-.slide.show.slow > *:not(.chrome-min):not(.nav-foot),
-.slide.show.slow .section-wrap > *{opacity:1;transform:translateY(0);}
-
-/* 教师页快速 stagger */
-.slide.show:not(.slow):not(.still) > *:nth-child(1),
-.slide.show:not(.slow):not(.still) .teacher-grid > *:nth-child(1),
-.slide.show:not(.slow):not(.still) .teacher-text > *:nth-child(1){transition-delay:0s}
-.slide.show:not(.slow):not(.still) > *:nth-child(2),
-.slide.show:not(.slow):not(.still) .teacher-grid > *:nth-child(2),
-.slide.show:not(.slow):not(.still) .teacher-text > *:nth-child(2){transition-delay:.04s}
-.slide.show:not(.slow):not(.still) > *:nth-child(3),
-.slide.show:not(.slow):not(.still) .teacher-grid > *:nth-child(3),
-.slide.show:not(.slow):not(.still) .teacher-text > *:nth-child(3){transition-delay:.08s}
-.slide.show:not(.slow):not(.still) > *:nth-child(4),
-.slide.show:not(.slow):not(.still) .teacher-grid > *:nth-child(4),
-.slide.show:not(.slow):not(.still) .teacher-text > *:nth-child(4){transition-delay:.12s}
-.slide.show:not(.slow):not(.still) > *:nth-child(5){transition-delay:.16s}
-/* 章节慢速 stagger */
-.slide.show.slow > *:nth-child(1){transition-delay:0s}
-.slide.show.slow > *:nth-child(2){transition-delay:.1s}
-.slide.show.slow > *:nth-child(3){transition-delay:.2s}
-.slide.show.slow > *:nth-child(4){transition-delay:.3s}
+.slide.show .teacher-text > *,
+.slide.show .cover-grid > *,
+.slide.show .section-wrap > *,
+.slide.show .closing-content > *,
+.slide.show .activity-grid > *,
+.slide.show .hello-content > *,
+.slide.show .video-wrap{
+  opacity:1;transform:translateY(0);
+}
+/* stagger delays using CSS custom property */
+.slide.show > *:nth-child(1),
+.slide.show .teacher-grid > *:nth-child(1),
+.slide.show .teacher-text > *:nth-child(1){transition-delay:0s}
+.slide.show > *:nth-child(2),
+.slide.show .teacher-grid > *:nth-child(2),
+.slide.show .teacher-text > *:nth-child(2){transition-delay:.06s}
+.slide.show > *:nth-child(3),
+.slide.show .teacher-grid > *:nth-child(3),
+.slide.show .teacher-text > *:nth-child(3){transition-delay:.12s}
+.slide.show > *:nth-child(4),
+.slide.show .teacher-grid > *:nth-child(4),
+.slide.show .teacher-text > *:nth-child(4){transition-delay:.18s}
+.slide.show > *:nth-child(5),
+.slide.show .teacher-grid > *:nth-child(5),
+.slide.show .teacher-text > *:nth-child(5){transition-delay:.22s}
+.slide.show > *:nth-child(6){transition-delay:.26s}
+.slide.show > *:nth-child(7){transition-delay:.3s}
 
 #fullscreen-prompt{
   position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
@@ -279,7 +286,7 @@ body.low-power canvas.bg{display:none!important}
 <div id="deck">
 
 <!-- ====== 01 · COVER ====== -->
-<section class="slide show slow">
+<section class="slide show">
   <div class="chrome-min">
     <span class="t-meta">WAN YUAN XIEHE · GRADE 7</span>
     <span class="t-mono" style="color:var(--accent);">SCENE 00</span>
@@ -288,7 +295,7 @@ body.low-power canvas.bg{display:none!important}
   <div style="display:flex;flex:1;min-height:0;">
     <div style="display:flex;flex-direction:column;justify-content:center;flex:1;gap:var(--sp-6);">
       <span class="t-cat" style="color:var(--accent);">A YEAR-END FILM BY GRADE 7 TEAM</span>
-      <h1 class="h-hero" style="font-size:min(6.5vw,10vh);">Action！七年级组的「杀青」报告</h1>
+      <h1 class="h-hero" >Action！<br>七年级组的<br>「杀青」报告</h1>
       <p class="lead">2025 学年年度总结</p>
       <div class="accent-bar"></div>
       <p class="body" style="color:var(--ink);">汇报人：<strong>赵宗莉</strong></p>
@@ -304,7 +311,7 @@ body.low-power canvas.bg{display:none!important}
 </section>
 
 <!-- ====== 02 · TEAM INTRO ====== -->
-<section class="slide grey slow">
+<section class="slide grey">
   <div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">2 / 26</span></div>
   <div style="display:flex;flex-direction:column;justify-content:center;flex:1;gap:var(--sp-6);">
     <span class="t-meta">SCENE 01</span>
@@ -325,7 +332,7 @@ body.low-power canvas.bg{display:none!important}
       </div>
       <div style="background:var(--paper);padding:var(--sp-6) var(--sp-7);border-left:4px solid var(--accent);">
         <h3 class="h-sm" style="margin-bottom:var(--sp-3);">综合学科</h3>
-        <p class="body">田卓凡 · 凌俐雯 · 王业培 · 赵宗莉 · 周宵亮</p>
+        <p class="body">田卓凡 · 凌俐雯 · 王业培 · 赵宗莉</p>
       </div>
     </div>
   </div>
@@ -333,7 +340,7 @@ body.low-power canvas.bg{display:none!important}
 </section>
 
 <!-- ====== 03 · CHINESE SECTION ====== -->
-<section class="slide accent slow">
+<section class="slide accent">
   <div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">3 / 26</span></div>
   <div class="section-wrap">
     <div style="position:absolute;right:3vw;top:-3vh;font-family:var(--serif-zh);font-size:22vh;font-weight:900;opacity:.06;line-height:1;pointer-events:none;">01-04</div>
@@ -398,7 +405,7 @@ body.low-power canvas.bg{display:none!important}
     <div class="teacher-text">
       <span class="t-meta">SCENE 01 · 语文组</span>
       <h3 class="teacher-role">温柔暖心大姐姐</h3>
-      <p class="body">郭颖老师：气质佳、文采绝，满腹文学底蕴才情满满，单论语文功底便遥遥领先。更难得心底热忱通透，但凡同事遇上难处，她总能搭把手、支个招，事事贴心周全。专业上是引路良师，生活里是温柔暖心大姐姐，各项长处拉满，属实不给旁人留半点赶超空间。</p>
+      <p class="body">气质佳、文采绝，满腹文学底蕴。心底热忱通透，同事遇上难处，她总能搭把手、支个招，事事贴心周全。</p>
       <div class="skill-row"><span class="skill-tag">文学底蕴</span><span class="skill-tag">贴心周全</span><span class="skill-tag">引路良师</span></div>
       <span class="t-mono">CAST NO. 04</span>
     </div>
@@ -407,7 +414,7 @@ body.low-power canvas.bg{display:none!important}
 </section>
 
 <!-- ====== 08 · MATH SECTION ====== -->
-<section class="slide accent slow">
+<section class="slide accent">
   <div style="position:absolute;right:2vw;top:-2vh;font-family:var(--serif-zh);font-size:24vh;font-weight:900;opacity:.05;line-height:1;pointer-events:none;color:var(--accent-on);">05</div>
   <div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">8 / 26</span></div>
   <div class="section-wrap">
@@ -429,7 +436,7 @@ body.low-power canvas.bg{display:none!important}
 <section class="slide grey"><div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">12 / 26</span></div><div class="teacher-grid"><div class="teacher-photo"><img src="images/image9.png" alt="姜正富"></div><div class="teacher-text"><span class="t-meta">SCENE 01 · 数学组</span><h3 class="teacher-role">数学教学大局守护者</h3><p class="body">身兼八年级年级组长与数学教师，待人温润谦和，行事却坚守本心、公正无私，为教学平稳推进保驾护航。</p><div class="skill-row"><span class="skill-tag">公正无私</span><span class="skill-tag">教学大局</span><span class="skill-tag">保驾护航</span></div><span class="t-mono">CAST NO. 08</span></div></div><div class="nav-foot"><span class="t-meta">数学组 · 4/4</span><span class="t-mono">Math</span></div></section>
 
 <!-- ====== 13 · ENGLISH SECTION ====== -->
-<section class="slide accent slow">
+<section class="slide accent">
   <div style="position:absolute;right:2vw;top:-2vh;font-family:var(--serif-zh);font-size:24vh;font-weight:900;opacity:.05;line-height:1;pointer-events:none;color:var(--accent-on);">09</div>
   <div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">13 / 26</span></div>
   <div class="section-wrap">
@@ -451,7 +458,7 @@ body.low-power canvas.bg{display:none!important}
 <section class="slide grey"><div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">17 / 26</span></div><div class="teacher-grid"><div class="teacher-photo"><img src="images/image13.png" alt="廖雨澄"></div><div class="teacher-text"><span class="t-meta">SCENE 01 · 英语组</span><h3 class="teacher-role">情绪稳定型进阶选手</h3><p class="body">瓷都出产高颜值女孩，情绪稳到从不急躁，人缘拉满，班主任业务还一路开挂飞速进阶。</p><div class="skill-row"><span class="skill-tag">情绪稳定</span><span class="skill-tag">班主任进阶</span><span class="skill-tag">人缘拉满</span></div><span class="t-mono">CAST NO. 12</span></div></div><div class="nav-foot"><span class="t-meta">英语组 · 4/4</span><span class="t-mono">English</span></div></section>
 
 <!-- ====== 18 · INT SECTION ====== -->
-<section class="slide accent slow">
+<section class="slide accent">
   <div style="position:absolute;right:2vw;top:-2vh;font-family:var(--serif-zh);font-size:24vh;font-weight:900;opacity:.05;line-height:1;pointer-events:none;color:var(--accent-on);">13</div>
   <div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">18 / 26</span></div>
   <div class="section-wrap">
@@ -480,7 +487,7 @@ body.low-power canvas.bg{display:none!important}
     <div class="teacher-text">
       <span class="t-meta" style="color:var(--accent);">SCENE 01 · KEY SUPPORT</span>
       <h3 class="teacher-role">全年级万能救火员</h3>
-      <p class="body">全年级万能救火员周宵亮老师：颜值拉满就算了，脑子转得比经纬网还快，别人遇事一筹莫展，她总能想出多重解决方案，带班、管年级样样拿捏，美貌才华双天花板。碰上难沟通家长、棘手学生，班主任一筹莫展之时，她总能冲锋陷阵最前沿，帮助大家排忧解难。就算半夜求助，也会细心帮忙改消息、支妙招，有她，万事不愁！</p>
+      <p class="body">颜值拉满，脑子转得比经纬网还快。带班、管年级样样拿捏，难沟通家长、棘手学生，她总能冲在最前沿。就算半夜求助，也会细心帮忙改消息、支妙招——有她，万事不愁。</p>
       <div class="skill-row"><span class="skill-tag">万能救火</span><span class="skill-tag">年级管理</span><span class="skill-tag">排忧解难</span></div>
       <span class="t-mono">CAST NO. 17</span>
     </div>
@@ -489,28 +496,39 @@ body.low-power canvas.bg{display:none!important}
 </section>
 
 <!-- ====== 24 · ACTIVITIES ====== -->
-<section class="slide grey slow">
+<section class="slide grey">
   <div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">24 / 26</span></div>
   <div style="display:flex;flex-direction:column;flex:1;gap:var(--sp-4);">
     <span class="t-meta">SCENE 02</span>
     <h2 class="h-lg">学年活动总结</h2>
     <p class="lead">从秋天到夏天，一路奔跑、探索、表达、发光。</p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-5);flex:1;align-content:center;padding:var(--sp-3) 0;">
-      <!-- 运动竞技 -->
-      <div><h4 class="h-sm" style="margin-bottom:var(--sp-3);">⚽ 运动竞技</h4><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">01</span>足球挑战赛</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">04</span>初中部运动会</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">07</span>探险少年</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">16</span>篮球挑战赛</p></div>
-      <!-- 艺术表达 -->
-      <div><h4 class="h-sm" style="margin-bottom:var(--sp-3);">🎭 艺术表达</h4><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">05</span>古诗词大会</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">06</span>冬季音乐会</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">12</span>英语戏剧之夜</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">13</span>京剧院入校园</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid transparent;"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">18</span>登塔观山海</p></div>
-      <!-- 社会实践 -->
-      <div><h4 class="h-sm" style="margin-bottom:var(--sp-3);">🌍 社会实践</h4><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">03</span>秋季实践活动</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">08</span>公益义卖善淘</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">10</span>东方绿洲实训</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">11</span>睡衣日</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid transparent;"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">15</span>广富林遗址</p></div>
-      <!-- 学科拓展 -->
-      <div><h4 class="h-sm" style="margin-bottom:var(--sp-3);">🔬 学科拓展</h4><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">02</span>数学集市</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">09</span>电影博物馆</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">14</span>七年级科技展</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid var(--border-subtle);"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">17</span>上博东馆</p><p class="body" style="margin:0;padding:1vh 0;border-bottom:1px solid transparent;"><span class="t-mono" style="background:rgba(255,213,0,.15);padding:1px 6px;margin-right:var(--sp-3);">19</span>夏季音乐会</p></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:var(--sp-6);row-gap:0;flex:1;align-content:center;padding:var(--sp-4) 0;">
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">01</span>初中部足球挑战赛</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">11</span>睡衣日</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);background:rgba(0,0,0,.015);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">02</span>七年级数学集市</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);background:rgba(0,0,0,.015);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">12</span>英语戏剧之夜</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">03</span>秋季实践活动</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">13</span>上海京剧院入校园</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);background:rgba(0,0,0,.015);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">04</span>初中部运动会</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);background:rgba(0,0,0,.015);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">14</span>七年级科技展</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">05</span>七年级古诗词大会</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">15</span>广富林遗址博物馆</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);background:rgba(0,0,0,.015);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">06</span>"无畏之声"冬季音乐会</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);background:rgba(0,0,0,.015);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">16</span>篮球挑战赛</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">07</span>七年级探险少年</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">17</span>上海博物馆东馆</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);background:rgba(0,0,0,.015);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">08</span>公益：绿洲盛食/义卖/善淘</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);background:rgba(0,0,0,.015);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">18</span>登塔观山海美术展</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">09</span>电影博物馆学习</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid var(--border-subtle);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">19</span>夏季音乐会</p>
+      <p class="body-sm" style="padding:1vh 0;border-bottom:1px solid transparent;background:rgba(0,0,0,.015);margin:0;"><span class="t-mono" style="display:inline-block;width:2.4vw;background:rgba(255,213,0,.15);color:var(--accent-on);padding:1px 6px;">10</span>东方绿洲安全教育实训</p>
     </div>
   </div>
-  <div class="nav-foot"><span class="t-meta">共 19 项活动 · 四大类别</span><span class="t-mono">ACTIVITIES</span></div>
+  <div class="nav-foot"><span class="t-meta">共 19 项活动 · 三季跨越</span><span class="t-mono">ACTIVITIES</span></div>
 </section>
 
 <!-- ====== 25 · HELLO + VIDEO ====== -->
-<section class="slide still">
+<section class="slide">
   <div class="chrome-min"><span class="t-meta">WAN YUAN XIEHE · GRADE 7</span><span class="t-mono">25 / 26</span></div>
   <div style="display:flex;flex-direction:column;flex:1;align-items:center;gap:var(--sp-5);">
     <span class="t-meta">SCENE 03</span>
@@ -535,8 +553,11 @@ body.low-power canvas.bg{display:none!important}
     <span class="t-meta">THE END</span>
     <h2 class="h-hero" style="font-size:min(7vw,11vh);">暑假快乐</h2>
     <p class="body" style="font-size:min(3vw,4.5vh);color:var(--accent-on);line-height:1.4;">感谢每一位老师<br>感谢每一个闪闪发光的少年</p>
-    <p class="body-sm" style="color:var(--accent-on);opacity:.7;max-width:50vw;text-align:center;">这一年，谢谢每一位认真发光的大人。</p>
     <div class="accent-bar" style="background:var(--accent-on);opacity:.2;"></div>
+    <div style="display:flex;gap:var(--sp-3);width:100%;max-width:50vw;">
+      <img src="images/image20.png" alt="" style="width:50%;max-height:30vh;object-fit:cover;">
+      <img src="images/image21.jpg" alt="" style="width:50%;max-height:30vh;object-fit:cover;">
+    </div>
     <span class="t-cat" style="color:var(--accent-on);">TO BE CONTINUED...</span>
     <span class="t-mono" style="color:var(--accent-on);opacity:.7;">2025 学年 · 七年级组年度总结</span>
   </div>
@@ -546,7 +567,7 @@ body.low-power canvas.bg{display:none!important}
 </div>
 
 <div id="progress"></div>
-<div id="hint"></div>
+<div id="hint">← → 翻页 · 🔆 夏天柠檬黄 · B 静态 · 视频自动全屏</div>
 
 <script>
 // ====== WebGL Grid Background ======
